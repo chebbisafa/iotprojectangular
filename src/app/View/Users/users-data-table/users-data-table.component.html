@@ -1,0 +1,156 @@
+
+<section id="extended">
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="card">
+        <div class="card-header">
+          <h4 class="card-title">Liste des utilisateurs </h4>
+        </div>
+        <div class="card-body">
+          <div class="card-block">
+            <table class="table table-responsive table-striped text-center">
+
+                <thead>
+                <tr>
+                  <th hidden>Id</th>
+                  <th>Nom</th>
+                  <th>Prénom</th>
+                  <th>Email</th>
+                  <th>Mot de passe </th>
+                  <th>Numéro de Téléphone</th>
+                  <th>Adresse</th>
+                  <th hidden>date</th>
+                  <th hidden>role</th>
+                  <th>Action</th>
+                  
+
+                </tr>
+                </thead>
+                <tbody>
+                <tr *ngFor= "let user of temp_users">
+                  <td hidden>{{user.id_user}}</td>
+                  <td>{{user.nom}}</td>
+                  <td>{{user.prenom}}</td>
+                  <td>{{user.email}}</td>
+                  <td>{{user.password}}</td>
+                  <td>{{user.numTel}}</td>
+                  <td>{{user.adresse}}</td>
+                  <td hidden>{{user.dateAjout}}</td>
+                  <td hidden>{{user.role}}</td>
+    
+
+                  <td>
+                    <!--(click)="delUser(user.id_user)"-->
+                   <!-- <button class="btn btn-danger" (click)="delUser(user.id_user)">Delete</button>
+                    <button class="btn btn-warning" (click)="initEditUser(user.id_user)">Edit</button>
+-->
+                    <a class="info p-0" data-original-title="" title="" (click)="opendetail(user,contentuser)">
+                    <i class="ft-user font-medium-3 mr-2"></i>
+                    </a>
+                    <a class="success p-0" data-original-title="" title="" (click)="openupdate(user,content1)">
+                      <i class="ft-edit-2 font-medium-3 mr-2"></i>
+                    </a>
+                    <a class="danger p-0" data-original-title="" title=""  (click)="open(user.id_user,content)">
+                      <i class="ft-x font-medium-3 mr-2"></i>
+                    </a>
+                  
+                  </td>
+                </tr>
+                </tbody>
+              </table>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!--Extended Table Ends-->
+
+ <!-- Modal  sup user  -->
+<ng-template #content let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <h4 class="modal-title">confirmation de la suppression </h4>
+    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <p>Voulez-vous vraiment supprimer cet utilisateur ?</p>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="c('Close click')">Fermer</button>
+    <button type="submit" class="btn btn-outline-red" (click)="supp(content)">Confirmer</button>
+
+  </div>
+</ng-template>
+ <!-- Modal  update device -->
+ <ng-template #content1 let-c="close" let-d="dismiss">
+  <div id="safe"  class="modal-header" >
+    <h4 class="modal-title">Modifier un utilisateur</h4>
+    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <form  #f="ngForm"  >
+  <div class="modal-body">
+   
+
+
+    <div class="input-group mb-3">
+      <span class="input-group-addon">
+          <i class="ft-mail"></i>
+      </span>
+     
+      <input type="email" class="form-control"  name="inputEmail" id="inputEmail"   ngModel="{{datauser.email}}" required email [(ngModel)]="user.email" >
+  </div>
+  <div class="input-group mb-3">
+    <span class="input-group-addon">
+        <i class="ft-lock"></i>
+    </span>
+    <input type="password" class="form-control" name="inputPass" id="inputPass"  ngModel="{{datauser.password}}" required [(ngModel)]="user.password" >
+</div>
+<div class="input-group mb-3">
+  <span class="input-group-addon">
+      <i class="ft-phone-call"></i>
+  </span>
+<input type="text" class="form-control" name="ftel" id="ftel"  ngModel="{{datauser.numTel}}" required [(ngModel)]="user.numTel" value="s,sl," >
+</div>
+<div class="input-group mb-3">
+  <span class="input-group-addon">
+      <i class="icon-map"></i>
+  </span>
+<input type="text" class="form-control" name="fadresse" id="fadresse"  ngModel="{{datauser.adresse}}" required [(ngModel)]="user.adresse" value="s,sl,">
+</div>
+
+
+
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="c('Close click')">Fermer</button>
+    <button type="button" class="btn btn-outline-green" (click)="update(f.value)">Modifier</button>
+  </div>
+</div>
+</form>
+</ng-template>
+ <!-- Modal detail user  -->
+ <ng-template #contentuser let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <h4 class="modal-title">Détails d'un utilisateur </h4>
+    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div> <i>Nom:</i>{{detailuser.nom}}</div>
+    <div> <i>Prénom:</i>{{detailuser.prenom}}</div>
+    <div> <i>Email:</i>{{detailuser.email}}</div>
+    <div><i>Numéro de téléphone:</i> {{detailuser.numTel}}</div>
+    <div><i>Adresse:</i>{{detailuser.adresse}}</div>
+    <div><i>Date d'inscription:</i>{{detailuser.dateAjout}}</div>
+    <div> <i>Rôle:</i>{{detailuser.role}}</div>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="c('Close click')">Fermer</button>
+
+  </div>
+</ng-template>

@@ -1,0 +1,47 @@
+/* You can add global styles to this file, and also import other style files */
+/* You can add global styles to this file, and also import other style files */
+
+
+.app-sidebar .navigation li > a:before, .off-canvas-sidebar .navigation li > a:before {
+
+    border-right: solid 5px #78cc37;
+  
+  }
+  .main-content .wizard > .steps > ul > li.current .step {
+    border-color: rgb( 146, 204, 67);
+    background-color: #fff;
+    color:  rgb(110, 119, 116);
+  }
+  .main-content .wizard > .steps > ul > li.done .step {
+    border-color: rgb( 146, 204, 67);
+    background-color:#fff;
+    color:  rgb(110, 119, 116);
+  }
+  .main-content .wizard.wizard-circle > .steps > ul > li:before, .main-content .wizard.wizard-circle > .steps > ul > li:after {
+    top: 43px;
+    width: 50%;
+    height: 5px;
+    background-color:rgb(110, 119, 116);
+  }
+  /*.app-sidebar
+  {
+    background-color: rgb(110, 119, 116);
+  }
+  */
+  .main-content .wizard > .actions > ul > li > a[href="#previous"] {
+    background-color: rgb(110, 119, 116);
+    color: #FFF;
+  }
+  .main-content .wizard > .actions > ul > li > a {
+    background: rgb( 146, 204, 67);
+    color: #fff;
+    display: block;
+    padding: 7px 12px;
+    border-radius: 2px;
+    border: 1px solid transparent;
+  }
+
+  .safa{
+    background: rgb(173, 204, 129);
+    background: linear-gradient(rgb(160, 204, 94) 0%, rgb(124, 133, 125) 50%);
+  }

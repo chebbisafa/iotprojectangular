@@ -1,0 +1,73 @@
+<!--Registration Page Starts-->
+<section id="regestration">
+    <div class="container">
+        <div class="row full-height-vh">
+            <div class="col-12 d-flex align-items-center justify-content-center">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row d-flex">
+                            <div class="col-12 col-sm-12 col-md-6 ">
+                                <div class="card-block">
+                                    <div class="card-img overlap">
+                                        <img alt="Card image cap" src="../../../../../assets/img/logo.jpg" width="350" class="mx-auto d-block">
+                                    </div>
+                                    <h2 class="card-title font-large-1 text-center white mt-3">Inscription</h2>
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-12 col-md-6 d-flex align-items-center">
+                                <div class="card-block mx-auto">
+                                    <form novalidate=""   #f="ngForm" (ngSubmit)="onSubmit(f.value)">
+                                        <div class="input-group mb-3">
+                                            <span class="input-group-addon">
+                                                <i class="icon-user"></i>
+                                            </span>
+                                            <input type="text" class="form-control" name="fname" id="fname" placeholder="Nom" ngModel required  [(ngModel)]="user.nom">
+                                        </div>
+                                      <div class="input-group mb-3">
+                                            <span class="input-group-addon">
+                                                <i class="icon-user"></i>
+                                            </span>
+                                     <input type="text" class="form-control" name="fprenom" id="fprenom" placeholder="Prénom" ngModel required [(ngModel)]="user.prenom">
+                                      </div>
+                                        <div class="input-group mb-3">
+                                            <span class="input-group-addon">
+                                                <i class="ft-mail"></i>
+                                            </span>
+                                            <input type="email" class="form-control" name="inputEmail" id="inputEmail" placeholder="Email" ngModel required email [(ngModel)]="user.email" >
+                                        </div>
+
+                                        <div class="input-group mb-3">
+                                            <span class="input-group-addon">
+                                                <i class="ft-lock"></i>
+                                            </span>
+                                            <input type="password" class="form-control" name="inputPass" id="inputPass" placeholder="Mot de passe" ngModel required [(ngModel)]="user.password">
+                                        </div>
+
+                                      <div class="input-group mb-3">
+                                            <span class="input-group-addon">
+                                                <i class="ft-phone-call"></i>
+                                            </span>
+                                        <input type="text" class="form-control" name="ftel" id="ftel" placeholder="Numéro de Téléphone" ngModel required [(ngModel)]="user.numTel" >
+                                      </div>
+
+                                      <div class="input-group mb-3">
+                                            <span class="input-group-addon">
+                                                <i class="icon-map"></i>
+                                            </span>
+                                        <input type="text" class="form-control" name="fadresse" id="fadresse" placeholder="Adresse" ngModel required [(ngModel)]="user.adresse">
+                                      </div>
+
+                                        <div class="form-group text-center">
+                                            <button [disabled]="!f.valid" class="btn btn-green btn-raised" >Inscription</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--Registration Page Ends   [disabled]="!f.valid"-->

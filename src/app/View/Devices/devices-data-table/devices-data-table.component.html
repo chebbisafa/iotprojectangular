@@ -1,0 +1,117 @@
+
+<section id="extended">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="card">
+          <div class="card-header">
+            <h4 class="card-title">Liste des devices </h4>
+          </div>
+          <div class="card-body">
+            <div class="card-block">
+              <table class="table table-responsive table-striped text-center">
+  
+                  <thead>
+                  <tr>
+                    <th>DeviceID</th>
+                    <th>Organisation</th>
+                    <th>Type</th>
+                    <th>Token</th>
+                    <th>Prix </th>
+                    <th>Statut</th>
+                    <th>id_user</th>
+                    <th>Action</th>
+  
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <tr *ngFor= "let device of temp_device">
+                    <td>{{device.device_id}}</td>
+                    <td>{{device.organisation_id}}</td>
+                    <td>{{device.device_type}}</td>
+                    <td>{{device.Token}}</td>
+                   <!-- <td>{{device.user_id_device}}</td>
+                    <td>{{device.pwd_id}}</td>-->
+                    <td>{{device.prix}}</td>
+                    <td>{{device.statut}}</td>
+                    <td>{{device.id_user}}</td>
+  
+                    <td>
+                      <!--(click)="delUser(user.id_user)"-->
+                     <!-- <button class="btn btn-danger" (click)="delUser(user.id_user)">Delete</button>
+                      <button class="btn btn-warning" (click)="initEditUser(user.id_user)">Edit</button>
+  -->
+                     
+                      <a class="success p-0" data-original-title="" title="" (click)="openupdate(device,content1)">
+                        <i class="ft-edit-2 font-medium-3 mr-2"></i>
+                      </a>
+                      <a class="danger p-0" data-original-title="" title=""  (click)="open(device.device_id,content)" >
+                        
+                        <i class="ft-x font-medium-3 mr-2"></i>
+                      </a>
+
+                    </td>
+                  </tr>
+                  </tbody>
+                </table>
+  
+            </div>
+          </div>
+         
+        </div>
+      </div>
+    </div>
+  </section>
+  <!--Extended Table Ends-->
+  
+ <!-- Modal  sup device -->
+ <ng-template #content let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <h4 class="modal-title">confirmation de la suppression</h4>
+    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <p>Voulez-vous vraiment supprimer cette devise ?</p>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="c('Close click')">Fermer</button>
+    <button type="submit" class="btn btn-outline-red" (click)="supp(content)">Confirmer</button>
+  </div>
+</ng-template>
+
+ <!-- Modal  update device -->
+ <ng-template #content1 let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <h4 class="modal-title">Modifier un device </h4>
+    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <form  #f="ngForm"  >
+  <div class="modal-body">
+   
+
+    <div class="row">
+      <div class="col-md-6">
+          <div class="form-group">
+            <label for="statut">Statut</label>
+            <select class="custom-select form-control" id="statut" name="statut" ngModel="{{this.datadevice.statut}}" required [(ngModel)]="device.statut" >
+              <option value="">Selectionner Statut</option>
+              <option value="Connecté">Connecté</option>
+              <option value="deconnecté">deconnecté</option>
+              <option value="En-panne">En-panne</option>
+            </select>
+          </div>
+        </div>
+        </div>
+       
+
+  
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="c('Close click')">Fermer</button>
+    <button type="button" class="btn btn-outline-green" (click)="update(f.value)">Modifier</button>
+  </div>
+</div>
+</form>
+</ng-template>

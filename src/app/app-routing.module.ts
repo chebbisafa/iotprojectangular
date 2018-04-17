@@ -1,0 +1,27 @@
+import { NgModule } from '@angular/core';
+import { RouterModule, Routes, PreloadAllModules } from '@angular/router';
+
+
+import { FullLayoutComponent } from './View/layouts/full/full-layout.component';
+import { ContentLayoutComponent } from './View/layouts/content/content-layout.component';
+
+import { Full_ROUTES } from './View/shared/routes/full-layout.routes';
+import { CONTENT_ROUTES } from './View/shared/routes/content-layout.routes';
+
+const appRoutes: Routes = [
+  {
+    path: '',
+    redirectTo: 'pages/login',
+    pathMatch: 'full',
+  },
+  { path: '', component: FullLayoutComponent, data: { title: 'full Views' }, children: Full_ROUTES },
+  { path: '', component: ContentLayoutComponent, data: { title: 'content Views' }, children: CONTENT_ROUTES },
+];
+
+@NgModule({
+  imports: [RouterModule.forRoot(appRoutes, { preloadingStrategy: PreloadAllModules })],
+  exports: [RouterModule]
+})
+
+export class AppRoutingModule {
+}

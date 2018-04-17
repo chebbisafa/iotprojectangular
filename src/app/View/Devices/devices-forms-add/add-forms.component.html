@@ -1,0 +1,108 @@
+<!-- Wizard Starts -->
+<div class="row">
+    <div class="col-sm-12">
+    </div>
+</div>
+<section id="icon-tabs">
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-header">
+          <h4 class="card-title">Ajouter un device</h4>
+        </div>
+        <div class="card-body">
+          <div class="card-block">
+            <form   novalidate="" id="formid"  #f="ngForm" (ngSubmit)="onSubmit(f.value)" class="icons-tab-steps wizard-circle" >
+              <!-- Step 1 -->
+              <h6>Etape 1</h6>
+              <fieldset>
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="device_id">Device ID</label>
+                      <input type="text" class="form-control" id="device_id" name="device_id" ngModel required  [(ngModel)]="device.device_id">
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="org">Organisation</label>
+                      <input type="text" class="form-control" id="org" name="org" ngModel required  [(ngModel)]="device.organisation_id">
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="type">Type</label>
+                          <select class="custom-select form-control" id="type" name="type" ngModel required  [(ngModel)]="device.device_type">
+                            <option value="">Selectionner Type</option>
+                            <option value="Terminale">Terminale</option>
+                            <option value="passerelle">passerelle</option>
+                          </select>
+                        </div>
+                      </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="token">Token</label>
+                      <input type="text" class="form-control" id="token" name="token" ngModel required  [(ngModel)]="device.Token">
+                    </div>
+                  </div>
+                
+                </div>
+                <!-- <button>ADD</button> -->
+              </fieldset>
+              <!-- Step 2 -->
+              <h6>Etape 2</h6>
+              <fieldset>
+                  <h4 class="card-title">Détail d'un device</h4>
+                <div class="row">
+                  <div class="col-md-6">
+                      <div class="form-group">
+                        <label for="type">Statut</label>
+                        <select class="custom-select form-control" id="type" name="type" ngModel required  [(ngModel)]="device.statut">
+                          <option value="">Selectionner Statut</option>
+                          <option value="Amsterdam">Connecté</option>
+                          <option value="Berlin">deconnecté</option>
+                          <option value="Berlin">En-panne</option>
+                        </select>
+                      </div>
+                    </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="prix">Prix</label>
+                    <input type="text" class="form-control" id="prix" name="prix" ngModel required  [(ngModel)]="device.prix">
+                  </div>
+                </div>
+              
+              </div>
+              </fieldset>
+              
+              
+              <!-- Step 3-->
+              <h6>Etape 3</h6>
+              <fieldset>
+                  <h4 class="card-title">Affecter un utilisateur</h4>
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="np">Nom&Prénom</label>
+                      <input type="text" class="form-control" id="np" name="np" ngModel required  [(ngModel)]="user.nom">
+                    </div>
+                  </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" class="form-control" id="email" name="email" ngModel required  [(ngModel)]="user.email">
+                  </div>
+                </div>
+              
+              </div>
+              </fieldset>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Wizard Ends -->
