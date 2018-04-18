@@ -31,6 +31,8 @@
                                         <button  class="btn btn-secondary btn-block btn-raised">Cancel</button>
                                     </div>
                                 </div>
+                                <div *ngIf="error" class="alert alert-danger">{{error}}</div>
+
                             </form>
                         </div>
                     </div>

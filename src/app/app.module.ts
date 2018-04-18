@@ -16,6 +16,7 @@ import {HttpClientModule} from "@angular/common/http";
 import { AppComponent } from './app.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import * as $ from 'jquery';
+import { AuthGuard } from './View/shared/routes/auth.guard';
 
 
 @NgModule({
@@ -36,6 +37,7 @@ import * as $ from 'jquery';
         SharedModule,
         ToastModule.forRoot(),
         NgbModule.forRoot(),
+       
         AgmCoreModule.forRoot({
             apiKey: 'AIzaSyBr5_picK8YJK7fFR2CPzTVMj6GG1TtRGo'
         })
@@ -44,6 +46,8 @@ import * as $ from 'jquery';
 
         UserService,
         DeviceService,
+        AuthGuard,
+        
         //Toastr providers
         { provide: ToastOptions, useClass: CustomOption }
     ],

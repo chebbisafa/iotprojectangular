@@ -32,34 +32,34 @@ export class LoginPageComponent implements OnInit {
 
     user =new User();
     data : any;
+      loading = false;
+    error = '';
     onSubmit() {
      
+        this.loading = true;
+     
       this.userS.authentification(this.user).subscribe(
-        data => { 
+      result => { 
            
-            this.data = data;
-        },
-        err => console.log(err),
-        () => {
             // this works!
-            console.log(this.data.response[0]);
-            console.log(this.data.response[0]['role']);
-            if (this.data.response[0] =1)
+            console.log(result);
+            if (!result)
             {
+                this.error = 'Email ou mot de passe est incorrect';
+                this.loading = false; 
+            }
+           else {
+               console.log(localStorage.getItem('token'));
                 console.log("ok")
                 this.loginForm.reset();
                 this.router.navigate(['../dashboard/dashboard1'], { relativeTo: this.route.parent });
 
             }
         }
-    );
-    
-       
-        
-      
-    }
-
      
+    );}
+
+
 
 
 

@@ -29,6 +29,7 @@ export class RegisterPageComponent implements OnInit {
     onSubmit() {
        this.user.dateAjout= new Date();
        this.user.role="prospecteur";
+       
       console.log(this.user);
       this.userS.addUserService(this.user).subscribe();
        /* if (!data.success) {
